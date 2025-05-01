@@ -4,12 +4,12 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-white border-t border-gray-200 b-">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
        
 
-          <div className="space-y-5">
+          <div className="space-y-8">
             <Image
               src="/logo-h.jpg"
               alt="DG Magazine Cyber Security logo"
@@ -39,23 +39,7 @@ const Footer = () => {
                 </span>
               </h3>
             </div>
-            <ul className="space-y-4">
-              {[
-                "Are Smart Cities Really Secure?",
-                "Condition of Greenlands Health Services Critical",
-                "Sensitive Government Websites in Italy Hacked",
-              ].map((post) => (
-                <li key={post} className="flex items-start space-x-2">
-                  <div className="mt-1 text-[#FF9102] text-lg">•</div>
-                  <a
-                    href="#"
-                    className="text-sm text-gray-600 hover:text-[#003366] transition-colors leading-snug"
-                  >
-                    {post}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          
           </div>
 
           {/* Subscription */}
@@ -67,7 +51,7 @@ const Footer = () => {
                 </span>
               </h3>
             </div>
-            <p className="text-sm text-gray-600">
+            <p className="text-[16px] text-gray-600">
               Subscribe Now to Receive Free Cyber Security Report
             </p>
             <form className="space-y-3">
@@ -122,7 +106,7 @@ const Footer = () => {
         <div className="text-center text-sm text-gray-600">
           <p>
             All Rights Reserved by DIGINFO. 2021 Copyright© 2021-2022 DIGINFO GROUP |{" "}
-            <a href="#" className="text-[#003366] hover:underline">
+            <a href="/terms-and-policy" className="text-[#003366] hover:underline">
               Terms & Policy
             </a>
           </p>
