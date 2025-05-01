@@ -51,7 +51,7 @@ const Footer = () => {
                 </span>
               </h3>
             </div>
-            <p className="text-[16px] text-gray-600">
+            <p className="text-[16px] font-semibold text-gray-600">
               Subscribe Now to Receive Free Cyber Security Report
             </p>
             <form className="space-y-3">
