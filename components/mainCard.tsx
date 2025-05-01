@@ -77,7 +77,7 @@ export default function NewsCard({
             onClick={() => setLikes(l => l + 1)}
             className="flex items-center gap-1 hover:text-green-600 text-sm"
           >
-            <ThumbsUpIcon className="w-10 h-10" />
+            <ThumbsUpIcon className="w-8 h-8" />
             {likes}
           </button>
 
@@ -85,7 +85,7 @@ export default function NewsCard({
             onClick={() => setDislikes(d => d + 1)}
             className="flex items-center gap-1 hover:text-red-600 text-sm"
           >
-            <ThumbsDownIcon className="w-10 h-10" />
+            <ThumbsDownIcon className="w-8 h-8" />
             {dislikes}
           </button>
         </div>
