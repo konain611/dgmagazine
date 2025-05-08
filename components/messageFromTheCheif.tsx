@@ -24,9 +24,9 @@ export default function MessageFromTheCheifPage() {
                     </p>
 
                     <p>
-                        For now, you will read articles on subjects like <span className="font-semibold">'Smart Grids'</span> and <span className="font-semibold">'Smart Cities.'</span>
-                        And there are thought provoking discussions on <span className="font-semibold">'Leadership Crisis'</span> in the profession
-                        and on <span className="font-semibold">'Boundaryless Laws.'</span> Every article is painstakingly produced backed by research,
+                        For now, you will read articles on subjects like <span className="font-semibold">&apos;Smart Grids&apos;</span> and <span className="font-semibold">&apos;Smart Cities.&apos;</span>
+                        And there are thought provoking discussions on <span className="font-semibold">&apos;Leadership Crisis&apos;</span> in the profession
+                        and on <span className="font-semibold">&apos;Boundaryless Laws.&apos;</span> Every article is painstakingly produced backed by research,
                         careful studies and analyses. You will come to realize that the content can easily be judged as reference material.
                     </p>
 

@@ -16,7 +16,7 @@ export default function EditorialBoardPage() {
                             Muhammad Saeed packs a lot more energy in his frame than anyone can guess. His biographical data reads like some stuff of dreams. Apparently he imagines something and goes out to get it without fail.
                         </p>
                         <p className="text-gray-700 mb-4">
-                            His academic record, to say the least, is impressive. A bachelor's from University of Karachi, a master's from LUMS and a doctorate from University of Karachi. As if that was not enough, he has also done some technical courses from prestigious institutions.
+                            His academic record, to say the least, is impressive. A bachelor&apos;s from University of Karachi, a master&apos;s from LUMS and a doctorate from University of Karachi. As if that was not enough, he has also done some technical courses from prestigious institutions.
                         </p>
                         <p className="text-gray-700 mb-4">
                             Now, as assistant professor at the same university he earned his doctoral degree from, he has carved a life steeped in erudition and academic pursuits. Already, he has authored or co-authored several research papers on subjects related to Computer Science or Information Technology, it is not surprising that quite a few of his students have demonstrated their creative talent under his tutelage.
@@ -82,7 +82,7 @@ export default function EditorialBoardPage() {
                     <div className="p-6">
                         <h3 className="text-2xl font-bold text-[#003366] mb-2">Adnan Masood</h3>
                         <p className="text-gray-700 mb-4">
-                            Adnan Masood is an Artificial Intelligence and Machine Learning researcher, software architect and Microsoft MVP (Most Valuable Professional) for Artificial Intelligence. As Chief Architect of AI and Machine Learning, at UST Global, he collaborates with Stanford Artificial Intelligence Lab, and MIT AI Lab for building enterprise solutions. He has authored "Functional Programming with F#" which rose to become an Amazon bestseller in programming languages.
+                            Adnan Masood is an Artificial Intelligence and Machine Learning researcher, software architect and Microsoft MVP (Most Valuable Professional) for Artificial Intelligence. As Chief Architect of AI and Machine Learning, at UST Global, he collaborates with Stanford Artificial Intelligence Lab, and MIT AI Lab for building enterprise solutions. He has authored &quot;Functional Programming with F#&quot; which rose to become an Amazon bestseller in programming languages.
                         </p>
                         <p className="text-gray-700 mb-4">
                             Dr. Masood teaches Data Science at Park University and Windows Communication Foundation (WCF) courses at the University of California, San Diego. He is a regular speaker to various academic and technology conferences, local code camps, and user groups. He also volunteers as STEM (Science Technology, Engineering and Math) robotics coach for elementary and middle school students.
