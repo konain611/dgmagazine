@@ -35,13 +35,13 @@ export default function NewsCard({
   const timeAgo = formatDistanceToNow(publishDate, { addSuffix: true });
 
   return (
-    <div className="mb-6 w-full bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow relative pb-10">
+    <div className="mb-10 w-full bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow relative rounded-lg border border-gray-200">
       {/* Clickable Image */}
       <Link href={href} className="block">
         <img
           src={imageSrc}
           alt={title}
-          className="w-full h-auto object-cover mb-4 hover:opacity-90 transition-opacity"
+          className="w-full h-auto object-cover mb-4 hover:opacity-95 transition-opacity"
         />
       </Link>
 

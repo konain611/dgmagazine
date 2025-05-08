@@ -1,6 +1,7 @@
 import InfoCard from "./Card";
 
 export default function RecentWidgets() {
+
     return (
         <div>
             <InfoCard
@@ -13,14 +14,14 @@ export default function RecentWidgets() {
                 image="/snow.png"
                 link="/"
             />
-            <InfoCard
+            {/* <InfoCard
                 heading="best review"
                 image="/"
                 link="/"
-            />
+            /> */}
             <InfoCard
                 heading="download pdf"
-                image="/"
+                image="/downloadPDF.png"
                 link="/"
             />
             <InfoCard
@@ -28,7 +29,7 @@ export default function RecentWidgets() {
                 image="/"
                 link="/"
             />
-        
+          
            
         </div>
     )

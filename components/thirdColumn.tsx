@@ -5,39 +5,39 @@ export default function PopularPosts() {
         <div>
             <InfoCard
                 heading="5g network"
-                image="/"
-                link="/"
+                image="/5g.jpg"
+                link="/5g-network"
             />
             <InfoCard
                 heading="popular posts"
-                image="/"
-                link="/"
+                image="/greenland.png"
+                link="/condition-of-greenlands-health-services-critical"
             />
             <InfoCard
                 heading="bitcoin"
-                image="/"
-                link="/"
+                image="/bitcoin.jpg"
+                link="/bitcoin-in-pakistan"
             />
             <InfoCard
                 heading="Cyber Policy In Pakistan"
-                image="/"
-                link="/"
+                image="/cyberpolicy.png"
+                link="/cyber-policy-in-pakistan"
             />
             <InfoCard
-                heading="K-ELECTRIC HACKED: Lessons to Learn"
-                image="/"
+                heading="KE HACKED: Lessons to Learn"
+                image="/ke.jpeg"
                 link="/"
             />
             <InfoCard
                 heading="Advertisement"
-                image="/"
+                image="/advertisement.jpg"
                 link="/"
             />
-            <InfoCard
+            {/* <InfoCard
                 heading="Recent Reviews"
                 image="/"
                 link="/"
-            />
+            /> */}
         </div>
     )
 }

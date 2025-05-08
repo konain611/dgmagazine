@@ -21,7 +21,7 @@ export default function InfoCard({ heading, image, link }: InfoCardProps) {
       </div>
 
       {/* Image */}
-      <Link href={link} className="block mt-15">
+      <Link href={link} className="block mt-12">
         <Image
           src={image}
           alt={heading}
