@@ -4,8 +4,5 @@
       "src": "next.config.js",
       "use": "@vercel/node"
     }
-  ],
-  "hooks": {
-    "build": "npx prisma generate"
-  }
+  ]
 }
