@@ -22,3 +22,35 @@ model WriteForm {
   comments      String?
   createdAt     DateTime @default(now())
 }
+
+model AdvertiseForm {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  firstName     String
+  lastName      String
+  phone         String
+  email         String
+  streetAddress String?
+  city          String?
+  state         String?
+  zipCode       String?
+  companyName   String?
+  interests     String[]
+  comments      String?
+}
+
+model PartnerForm {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  firstName     String
+  lastName      String
+  phone         String
+  email         String
+  streetAddress String?
+  city          String?
+  state         String?
+  zipCode       String?
+  companyName   String?
+  interests     String[]
+  comments      String?
+}

@@ -141,7 +141,7 @@ export default function WritePage() {
                   value={formData.firstName}
                   onChange={handleChange}
                   required
-                  className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                  className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
                 />
               </div>
 
@@ -154,7 +154,7 @@ export default function WritePage() {
                   value={formData.lastName}
                   onChange={handleChange}
                   required
-                  className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                  className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
                 />
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function WritePage() {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                  className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
                 />
               </div>
 
@@ -182,7 +182,7 @@ export default function WritePage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                  className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function WritePage() {
                 name="streetAddress"
                 value={formData.streetAddress}
                 onChange={handleChange}
-                className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
               />
             </div>
 
@@ -208,7 +208,7 @@ export default function WritePage() {
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
-                  className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                  className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
                 />
               </div>
 
@@ -220,7 +220,7 @@ export default function WritePage() {
                   name="state"
                   value={formData.state}
                   onChange={handleChange}
-                  className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                  className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
                 />
               </div>
 
@@ -232,7 +232,7 @@ export default function WritePage() {
                   name="zipCode"
                   value={formData.zipCode}
                   onChange={handleChange}
-                  className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                  className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
                 />
               </div>
             </div>
@@ -245,11 +245,11 @@ export default function WritePage() {
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
-                className="mt-1 py-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
               />
             </div>
 
-            <div>
+            <div className="my-10">
               <p className="block text-xl font-medium text-gray-700 mb-2">Interests (Select all that apply)</p>
               <div className="space-y-2">
                 {interestOptions.map((interest) => (
@@ -261,7 +261,7 @@ export default function WritePage() {
                       value={interest}
                       checked={formData.interests.includes(interest)}
                       onChange={handleChange}
-                      className="h-4 w-4 rounded border-gray-300 text-[#003366] focus:ring-[#003366]"
+                      className="h-5 w-5 rounded border-2 border-gray-300 text-[#003366] focus:ring-[#003366]"
                     />
                     <label htmlFor={interest} className="ml-2 text-xl text-gray-700">
                       {interest}
@@ -279,7 +279,7 @@ export default function WritePage() {
                 rows={5}
                 value={formData.comments}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#003366] focus:ring-[#003366]"
+                className="mt-1 p-3 block w-full rounded-md border-2 border-gray-300 bg-gray-50 shadow-sm focus:border-[#003366] focus:ring-[#003366] focus:bg-white"
               />
             </div>
 
@@ -287,7 +287,7 @@ export default function WritePage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-[#003366] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-[#FF9102] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003366] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`w-full bg-[#003366] py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-white hover:bg-[#FF9102] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003366] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>
@@ -295,6 +295,77 @@ export default function WritePage() {
           </form>
         </div>
       </div>
+
+      <h1 className="text-3xl font-bold text-center my-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
+        Article Reference Architecture
+      </h1>
+      <div className="px-4 md:px-20">
+        <div className="space-y-4 mb-8">
+          <p>
+            ◻ Introduce and articulate the problem, then<br />
+            ◻ Identify the Root Cause(s), then,<br />
+            ◻ Identify a/the solution, then<br />
+            ◻ Describe the solution in significant technical detail, sufficient to demonstrate feasibility, then<br />
+            ◻ Explain how the solution can be integrated into general use,<br />
+            ◻ Provide a call to action in the conclusion
+          </p>
+          <p>
+            <i>*Articles cannot be self-promotional or written from a 1st person perspective.</i>
+          </p>
+        </div>
+      </div>
+
+      <h1 className="text-3xl font-bold text-center my-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
+        Abstract
+      </h1>
+      <div className="px-4 md:px-20">
+        <div className="space-y-4 mb-8">
+          <p>
+            A 1 to 2 paragraph abstract must be submitted for approval.  Your abstract must be a high level summary of what the article will be about.
+          </p>
+        </div>
+      </div>
+
+      <h1 className="text-3xl font-bold text-center my-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
+        Article Lenght
+      </h1>
+      <div className="px-4 md:px-20">
+        <div className="space-y-4 mb-8">
+          <p>
+            Standard article: A standard article has a length of 1,500 to 1,700 words. Most articles will be standard articles unless agreed upon otherwise          </p>
+        </div>
+      </div>
+
+      <h1 className="text-3xl font-bold text-center my-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
+        Article Specification
+      </h1>
+      <div className="px-4 md:px-20">
+        <div className="space-y-4 mb-8">
+          <p>
+            Articles may be prepared using Microsoft Word.
+          </p>
+          <p>
+            Use headings and subheadings that may include phrases or questions. A reader should be able to get a good impression of what the article contains by briefly examining the headings/subheadings of the article.
+          </p>
+          <p>
+            Photographs, other creative, all images and text must be sent as separate files.
+          </p>
+          <p>
+            Any images submitted to use in article must be at a resolution of at least 300 dpi.
+          </p>
+          <p>
+            Please send all images in a TIFF, EPS, or high-resolution JPEG. All images should be at a scale larger than intended for use with the article. We cannot take a 2&quot;x 2&quot; image and reproduce it to a 4&quot;x 4&quot; without adversely affecting the resolution.
+          </p>
+          <p>
+            Low resolution images will be rejected.
+          </p>
+          <p>
+            Once your article is accepted for publication, our in-house art department will design article layout.
+          </p>
+        </div>
+      </div>
+
     </div>
+
   );
 }

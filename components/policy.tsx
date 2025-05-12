@@ -76,7 +76,7 @@ export default function PolicyPage() {
                             By using our site, you consent to our privacy policy.
                         </p>
                         <p>
-                            This policy was last modified on 01/05/2020
+                            This policy was last modified on 12/May/2025
                         </p>
                     </section>
                 </div>
