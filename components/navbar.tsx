@@ -65,7 +65,7 @@ const Navbar = () => {
             "CYBER CAREER GUIDANCE": []
         },
         "CYBER PRODUCTS": {
-            "BUYER'S GUIDE": [],
+            "BUYERS GUIDE": [],
             "BEST CYBER SECURITY PRODUCTS": []
         },
         "CYBER AFFAIRS": {
