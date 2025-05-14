@@ -1,7 +1,7 @@
 export default function PolicyPage() {
     return (
         <div>
-            <h1 className="text-3xl font-bold text-center mb-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
+            <h1 className="text-gray-900 text-3xl font-bold text-center mb-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
                 Privacy Policy
             </h1>
 
@@ -84,7 +84,7 @@ export default function PolicyPage() {
             </div>
 
 
-            <h1 className="text-3xl font-bold text-center mb-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
+            <h1 className="text-gray-900 text-3xl font-bold text-center mb-10 bg-white py-4 px-6 shadow-md rounded-lg border-b-4 border-[#003366]">
                 Terms & Conditions
             </h1>
             <div className="bg-white rounded-lg shadow-sm p-6 mb-10">

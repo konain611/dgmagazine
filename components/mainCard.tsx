@@ -48,7 +48,7 @@ export default function NewsCard({
       {/* Content below image */}
       <div className="p-4">
         {/* Clickable Title */}
-        <Link href={href} className="text-2xl font-bold hover:text-[#FF9120] line-clamp-2 mb-4 block">
+        <Link href={href} className="text-gray-900 text-2xl font-bold hover:text-[#FF9120] line-clamp-2 mb-4 block">
           {title}
         </Link>
 

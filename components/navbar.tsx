@@ -107,14 +107,14 @@ const Navbar = () => {
     return (
         <div>
             <nav
-                className="text-white bg-[#003366]  shadow-lg flex flex-col md:flex-row justify-between items-center font-semibold sticky top-0 z-50 h-20"
+                className="text-white bg-[#003366] shadow-lg flex flex-col md:flex-row items-center font-semibold sticky top-0 z-50 h-20"
                 role="navigation"
                 aria-label="Main navigation"
             >
                 {/* Logo and Mobile Menu Button */}
-                <div className="w-full md:w-auto flex justify-between items-center h-full px-4 relative">
+                <div className="w-full md:w-auto flex justify-between items-center h-full px-4 md:px-6 md:mr-8">
                     {/* Logo container */}
-                    <div className="h-[150%] absolute top-3 left-15 flex items-start">
+                    <div className="h-24 md:h-32 flex-shrink-0 relative z-20 top-7 left-7"> {/* Increased z-index */}
                         <Link
                             href="/"
                             onClick={handleItemClick}
@@ -123,10 +123,14 @@ const Navbar = () => {
                             <Image
                                 src="/Logo.png"
                                 alt="DGMagazine Logo"
-                                width={120}
-                                height={180}
+                                width={140}
+                                height={200}
                                 className="h-full w-auto object-contain"
-                                style={{ minWidth: '120px' }}
+                                // style={{
+                                //     minWidth: '120px',
+                                //     maxWidth: '130px', // Constrain width
+                                //     maxHeight: '200px' // Prevent excessive height
+                                // }}
                             />
                         </Link>
                     </div>
@@ -153,7 +157,7 @@ const Navbar = () => {
                 {/* Navigation Links - Desktop */}
                 <div
                     ref={dropdownRef}
-                    className={`${mobileMenuOpen ? 'block' : 'hidden'} text-sm md:flex md:space-x-2 w-full md:w-auto mt-4 bg-[#003366] md:mt-0`}
+                    className={`${mobileMenuOpen ? 'block' : 'hidden'} text-sm md:flex md:flex-1 md:items-center md:space-x-2 w-full md:w-auto mt-4 bg-[#003366] md:mt-0 md:min-w-[50%]`}
                 >
                     {["NEWS", "MAGAZINE", "RESEARCH", "ADVISORY ROOM", "CYBER PRODUCTS", "CYBER AFFAIRS", "CYBER AWARENESS", "MEDIA"].map((item) => (
                         <div
@@ -253,7 +257,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Search Bar - Right Side */}
-                <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex items-center w-full md:w-auto mt-4 md:mt-0 md:mr-4`}>
+               <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex items-center w-full md:w-auto mt-4 md:mt-0 md:ml-auto md:px-6 flex-shrink-0`}>
                     <div className="relative w-full md:w-48">
                         <input
                             type="text"
@@ -268,19 +272,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            <nav className="text-white bg-[#FF9102] shadow-lg flex flex-col md:flex-row justify-between items-center px-4 md:px-10 font-semibold sticky top-0 z-3 h-auto md:h-12 gap-2">
-                <div className="flex flex-col md:flex-row gap-2 ml-50">
-                    <Link href="/write-for-us" className="text-white hover:text-[#003366] px-3 py-1.5">WRITE FOR US</Link>
-                    <Link href="/advertise-with-us" className="text-white hover:text-[#003366] px-3 py-1.5">ADVERTISE WITH US</Link>
-                    <Link href="/partner-with-us" className="text-white hover:text-[#003366] px-3 py-1.5">PARTNER WITH US</Link>
-                </div>
-                <div className="flex flex-col md:flex-row gap-2 mr-20">
-                    <Link href="/contact-us" className="text-white hover:text-[#003366] px-3 py-1.5">CONTACT US</Link>
-                    <Link href="/subscription" className="text-white hover:text-[#003366] px-3 py-1.5">SUBSCRIPTION</Link>
-                    <Link href="/sign-up" className="text-white hover:text-[#003366] px-3 py-1.5">SIGN IN / SIGN UP</Link>
-                    <Link href="/dashboard" className="text-white hover:text-[#003366] px-3 py-1.5">DASHBOARD</Link>
-                </div>
-            </nav>
+
 
         </div>
     );

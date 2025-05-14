@@ -55,7 +55,7 @@ const Footer = () => {
             <p className="text-[18px] font-semibold text-gray-600">
               Subscribe Now to Receive Free Cyber Security Report
             </p>
-            <form className="space-y-3">
+            <form className="space-y-3 text-gray-900">
               <input
                 type="email"
                 placeholder="Your email"

@@ -1,43 +1,38 @@
+
+
 import InfoCard from "./Card";
 
-export default function PopularPosts() {
+export default function RecentWidgets() {
+
     return (
         <div>
             <InfoCard
-                heading="5g network"
-                image="/5g.jpg"
-                link="/5g-network"
-            />
-            <InfoCard
-                heading="popular posts"
-                image="/greenland.png"
-                link="/condition-of-greenlands-health-services-critical"
-            />
-            <InfoCard
-                heading="bitcoin"
-                image="/bitcoin.jpg"
-                link="/bitcoin-in-pakistan"
-            />
-            <InfoCard
-                heading="Cyber Policy In Pakistan"
-                image="/cyberpolicy.png"
-                link="/cyber-policy-in-pakistan"
-            />
-            <InfoCard
-                heading="KE HACKED: Lessons to Learn"
-                image="/ke.jpeg"
+                heading="btc mining"
+                image="/btc.png"
                 link="/"
             />
             <InfoCard
-                heading="Advertisement"
-                image="/advertisement.jpg"
+                heading="subscribe now"
+                image="/snow.png"
                 link="/"
             />
             {/* <InfoCard
-                heading="Recent Reviews"
+                heading="best review"
                 image="/"
                 link="/"
             /> */}
+            <InfoCard
+                heading="download pdf"
+                image="/downloadPDF.png"
+                link="/"
+            />
+            <InfoCard
+                heading="calender"
+                image="/"
+                link="/"
+            />
+          
+           
         </div>
     )
 }
