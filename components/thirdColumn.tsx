@@ -26,11 +26,11 @@ export default function RecentWidgets() {
                 image="/downloadPDF.png"
                 link="/"
             />
-            <InfoCard
+            {/* <InfoCard
                 heading="calender"
                 image="/"
                 link="/"
-            />
+            /> */}
           
            
         </div>

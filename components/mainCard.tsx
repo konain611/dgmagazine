@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import Link from 'next/link';
 import { ThumbsDownIcon, ThumbsUpIcon } from "./icons";
+import Image from 'next/image';
 
 interface NewsCardProps {
   imageSrc: string;
@@ -38,10 +39,16 @@ export default function NewsCard({
     <div className="mb-10 w-full bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow relative rounded-lg border border-gray-200">
       {/* Clickable Image */}
       <Link href={href} className="block">
-        <img
+        <Image
           src={imageSrc}
           alt={title}
-          className="w-full h-auto object-cover mb-4 hover:opacity-95 transition-opacity"
+          width={500} // Set appropriate width
+          height={200} // Set appropriate height
+          className="w-full h-auto object-cover mb-4 hover:opacity-90 transition-opacity"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
       </Link>
 
@@ -91,23 +98,23 @@ export default function NewsCard({
         </div>
 
         {/* Continue Reading Button */}
-        <Link 
+        <Link
           href={href}
           className="absolute bottom-4 right-4 text-sm font-medium text-[#FF9120] hover:text-[#e07d1a] flex items-center"
         >
           CONTINUE READING
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-4 w-4 ml-1" 
-            fill="none" 
-            viewBox="0 0 24 24" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 ml-1"
+            fill="none"
+            viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M14 5l7 7m0 0l-7 7m7-7H3" 
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
             />
           </svg>
         </Link>

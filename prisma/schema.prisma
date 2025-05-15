@@ -54,3 +54,12 @@ model PartnerForm {
   interests     String[]
   comments      String?
 }
+
+model ContactForm {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  email     String
+  subject   String
+  message   String
+}
