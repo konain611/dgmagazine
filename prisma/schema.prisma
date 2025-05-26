@@ -63,3 +63,13 @@ model ContactForm {
   subject   String
   message   String
 }
+
+model User {
+  id       Int    @id @default(autoincrement())
+  company  String
+  country  String
+  username String @unique
+  email    String @unique
+  password String
+  createdAt DateTime @default(now())
+}
