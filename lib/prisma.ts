@@ -1,14 +1,19 @@
+// lib/prisma.ts
 import { PrismaClient } from '@prisma/client';
 
-/* eslint-disable no-var */
 declare global {
+  // Allow global `prisma` in development to prevent exhausting connections
+  // eslint-disable-next-line no-var
   var prisma: PrismaClient | undefined;
 }
-/* eslint-enable no-var */
 
-// Use a global variable in development to avoid creating too many connections
-export const prisma = global.prisma || new PrismaClient();
+export const prisma: PrismaClient =
+  global.prisma ??
+  new PrismaClient({
+    log: process.env.NODE_ENV === 'development' ? ['query', 'warn', 'error'] : ['error'],
+  });
 
-if (process.env.NODE_ENV === 'development') {
+// In development, use the global so we only create one instance
+if (process.env.NODE_ENV !== 'production') {
   global.prisma = prisma;
 }

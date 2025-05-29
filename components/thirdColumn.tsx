@@ -8,8 +8,8 @@ export default function RecentWidgets() {
         <div>
             <InfoCard
                 heading="btc mining"
-                image="/btc.png"
-                link="/"
+                image="/images/articles/btc.png"
+                link="/articles/btc-mining-competition"
             />
             <InfoCard
                 heading="subscribe now"

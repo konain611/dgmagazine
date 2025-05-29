@@ -5,8 +5,8 @@ export default function PopularPosts() {
         <div>
             <InfoCard
                 heading="5g network"
-                image="/5g.jpg"
-                link="/5g-network"
+                image="/images/articles/5g.jpg"
+                link="/articles/5g-network"
             />
             <InfoCard
                 heading="popular posts"

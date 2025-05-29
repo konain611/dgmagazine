@@ -86,7 +86,7 @@ export default function ContactPage() {
                             <div>
                                 <label htmlFor="email" className="block text-xl font-medium text-gray-700">Email*</label>
                                 <input
-                                    type="text"
+                                    type="email"
                                     id="email"
                                     name="email"
                                     value={formData.email}

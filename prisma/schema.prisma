@@ -18,7 +18,7 @@ model WriteForm {
   state         String?
   zipCode       String?
   companyName   String?
-  interests     String[] // stores multiple checkbox selections
+  interests     String?
   comments      String?
   createdAt     DateTime @default(now())
 }
@@ -35,7 +35,7 @@ model AdvertiseForm {
   state         String?
   zipCode       String?
   companyName   String?
-  interests     String[]
+  interests     String?
   comments      String?
 }
 
@@ -51,7 +51,7 @@ model PartnerForm {
   state         String?
   zipCode       String?
   companyName   String?
-  interests     String[]
+  interests     String?
   comments      String?
 }
 
@@ -65,11 +65,61 @@ model ContactForm {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  company  String
-  country  String
-  username String @unique
-  email    String @unique
-  password String
+  id        Int      @id @default(autoincrement())
+  company   String
+  country   String
+  username  String   @unique
+  email     String   @unique
+  password  String
   createdAt DateTime @default(now())
+
+  // Relations
+  likes     ArticleLike[]
+  comments  Comment[]
+  downloads ArticleDownload[]
+}
+
+model Article {
+  id          Int       @id @default(autoincrement())
+  title       String
+  slug        String    @unique
+  content     String
+  author      String
+  createdAt   DateTime  @default(now())
+  imageUrl    String?
+  // Relations
+  likes       ArticleLike[]
+  comments    Comment[]
+  downloads   ArticleDownload[]
+}
+
+model ArticleLike {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int
+  article    Article  @relation(fields: [articleId], references: [id])
+  articleId  Int
+  isLike     Boolean
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, articleId])
+}
+
+model Comment {
+  id         Int      @id @default(autoincrement())
+  content    String
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int
+  article    Article  @relation(fields: [articleId], references: [id])
+  articleId  Int
+  createdAt  DateTime @default(now())
+}
+
+model ArticleDownload {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     Int
+  article    Article  @relation(fields: [articleId], references: [id])
+  articleId  Int
+  createdAt  DateTime @default(now())
 }

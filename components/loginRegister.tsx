@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { getNames } from 'country-list';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/components/AuthContext';
+import { Eye, EyeOff } from 'lucide-react';
 
-// Utility to generate simple math captcha
 function generateCaptcha() {
   const a = Math.floor(Math.random() * 10) + 1;
   const b = Math.floor(Math.random() * 10) + 1;
@@ -16,27 +16,25 @@ export default function LoginRegister() {
   const router = useRouter();
   const { login } = useAuth();
 
-  // Captchas
-  const [loginCaptcha, setLoginCaptcha] = useState<{ question: string; answer: string }>({ question: '', answer: '' });
-  const [registerCaptcha, setRegisterCaptcha] = useState<{ question: string; answer: string }>({ question: '', answer: '' });
+  const [loginCaptcha, setLoginCaptcha] = useState({ question: '', answer: '' });
+  const [registerCaptcha, setRegisterCaptcha] = useState({ question: '', answer: '' });
 
   const [loginData, setLoginData] = useState({ usernameOrEmail: '', password: '', captcha: '' });
-  const [registerData, setRegisterData] = useState({
-    company: '', country: '', username: '', email: '', password: '', confirmPassword: '', captcha: '', subscribe: true
-  });
+  const [registerData, setRegisterData] = useState({ company: '', country: '', username: '', email: '', password: '', confirmPassword: '', captcha: '', subscribe: true });
 
   const [countries, setCountries] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+  const [showRegisterConfirmPassword, setShowRegisterConfirmPassword] = useState(false);
 
   useEffect(() => {
     setCountries(getNames());
-    // generate initial captchas
     setLoginCaptcha(generateCaptcha());
     setRegisterCaptcha(generateCaptcha());
   }, []);
 
-  // handlers
   const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
@@ -48,7 +46,6 @@ export default function LoginRegister() {
 
   const validateEmail = (email: string) => /^\S+@\S+\.\S+$/.test(email);
 
-  // submit functions
   const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); setError(''); setSuccess('');
 
@@ -105,7 +102,7 @@ export default function LoginRegister() {
 
       login(data.token);
       setSuccess('Login successful! Redirecting...');
-      router.push('/dashboard');
+      router.push('/');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error.');
     }
@@ -119,7 +116,6 @@ export default function LoginRegister() {
       {success && <div className="text-green-600 mb-4 text-center font-semibold text-2xl">{success}</div>}
 
       <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto p-6">
-        {/* Login */}
         <div className="w-full md:w-1/2 border rounded p-6 shadow">
           <h2 className="text-xl font-bold mb-4">Login</h2>
           <form onSubmit={handleLoginSubmit} className="space-y-4">
@@ -127,9 +123,12 @@ export default function LoginRegister() {
               Username or email address
               <input name="usernameOrEmail" value={loginData.usernameOrEmail} onChange={handleLoginChange} type="text" className="w-full p-2 border rounded mt-1 focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
             </label>
-            <label>
+            <label className="relative block">
               Password
-              <input name="password" value={loginData.password} onChange={handleLoginChange} type="password" className="w-full p-2 border rounded mt-1 focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
+              <input name="password" value={loginData.password} onChange={handleLoginChange} type={showLoginPassword ? 'text' : 'password'} className="w-full p-2 border rounded mt-1 focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
+              <span className="absolute right-3 top-9 cursor-pointer" onClick={() => setShowLoginPassword(!showLoginPassword)}>
+                {showLoginPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </span>
             </label>
             <label>
               Are you human? Solve: {loginCaptcha.question} =
@@ -146,7 +145,6 @@ export default function LoginRegister() {
           <div className="mt-2 text-sm text-gray-500 underline cursor-pointer">Lost your password?</div>
         </div>
 
-        {/* Register */}
         <div className="w-full md:w-1/2 border rounded p-6 shadow">
           <h2 className="text-xl font-bold mb-4">Register</h2>
           <form onSubmit={handleRegisterSubmit} className="space-y-4">
@@ -157,8 +155,18 @@ export default function LoginRegister() {
             </select>
             <input name="username" value={registerData.username} onChange={handleRegisterChange} type="text" placeholder="Username" className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
             <input name="email" value={registerData.email} onChange={handleRegisterChange} type="email" placeholder="Email address" className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
-            <input name="password" value={registerData.password} onChange={handleRegisterChange} type="password" placeholder="Password" className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
-            <input name="confirmPassword" value={registerData.confirmPassword} onChange={handleRegisterChange} type="password" placeholder="Confirm Password" className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
+            <label className="relative block">
+              <input name="password" value={registerData.password} onChange={handleRegisterChange} type={showRegisterPassword ? 'text' : 'password'} placeholder="Password" className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
+              <span className="absolute right-3 top-2.5 cursor-pointer" onClick={() => setShowRegisterPassword(!showRegisterPassword)}>
+                {showRegisterPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </span>
+            </label>
+            <label className="relative block">
+              <input name="confirmPassword" value={registerData.confirmPassword} onChange={handleRegisterChange} type={showRegisterConfirmPassword ? 'text' : 'password'} placeholder="Confirm Password" className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
+              <span className="absolute right-3 top-2.5 cursor-pointer" onClick={() => setShowRegisterConfirmPassword(!showRegisterConfirmPassword)}>
+                {showRegisterConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </span>
+            </label>
             <div className="flex items-center gap-2">
               <input name="subscribe" type="checkbox" checked={registerData.subscribe} onChange={handleRegisterChange} />
               <label>Subscribe to our newsletter</label>

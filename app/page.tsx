@@ -14,3 +14,8 @@ export default function HomePage() {
     </div>
   );
 }
+
+// Add this at the bottom of your page.tsx
+export async function generateStaticParams() {
+  return []; // Return empty array if you don't have static paths
+}
