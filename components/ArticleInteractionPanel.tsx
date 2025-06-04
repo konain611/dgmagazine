@@ -3,6 +3,7 @@
 import { FC, useState, useEffect } from 'react';
 import { useAuth } from './AuthContext';
 import { ThumbsUp, ThumbsDown, Download, Share2 } from 'lucide-react';
+import Link from 'next/link';
 
 interface Comment {
   id: number;
@@ -251,7 +252,7 @@ const ArticleInteractionPanel: FC<Props> = ({
             </div>
           </div>
         ) : (
-          <p className="text-gray-500">Login to post a comment.</p>
+          <p className="text-gray-500 py-7"><Link href="/sign-up" className='font-semibold text-gray-600 hover:text-[#003366] hover:underline'>Login</Link> to post a comment.</p>
         )}
 
         {/* Comments List */}

@@ -15,7 +15,7 @@ export default function HomePage() {
   );
 }
 
-// Add this at the bottom of your page.tsx
-export async function generateStaticParams() {
-  return []; // Return empty array if you don't have static paths
-}
+// // Add this at the bottom of your page.tsx
+// export async function generateStaticParams() {
+//   return []; // Return empty array if you don't have static paths
+// }
