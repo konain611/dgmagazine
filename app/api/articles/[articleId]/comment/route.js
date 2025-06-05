@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { verifyJWT } from '@/lib/auth';
 
+// Create a new comment or reply
 export async function POST(req, { params }) {
   try {
     const token = req.headers.get('authorization')?.replace('Bearer ', '');
@@ -11,7 +12,7 @@ export async function POST(req, { params }) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { content } = await req.json();
+    const { content, parentId } = await req.json();
     if (!content || typeof content !== 'string') {
       return NextResponse.json(
         { error: 'Comment content is required' },
@@ -34,17 +35,32 @@ export async function POST(req, { params }) {
       );
     }
 
+    // If parentId is provided, verify that the parent comment exists and belongs to the same article
+    let parentComment = null;
+    if (parentId) {
+      parentComment = await prisma.comment.findUnique({
+        where: { id: parentId },
+      });
+      if (!parentComment || parentComment.articleId !== articleId) {
+        return NextResponse.json(
+          { error: 'Invalid parent comment' },
+          { status: 400 }
+        );
+      }
+    }
+
     const comment = await prisma.comment.create({
       data: {
         content: content.trim(),
         articleId,
         userId: user.userId,
+        parentId: parentId || null,
       },
       include: {
         user: {
           select: {
+            id: true,
             username: true,
-            // Add other user fields you want to include
           },
         },
       },
@@ -54,11 +70,12 @@ export async function POST(req, { params }) {
       comment: {
         id: comment.id,
         content: comment.content,
-        user: comment.user,
+        user: { id: comment.user.id, username: comment.user.username },
+        parentId: comment.parentId,
         createdAt: comment.createdAt.toISOString(),
+        replies: [],
       },
     });
-
   } catch (error) {
     console.error('Comment error:', error);
     return NextResponse.json(
@@ -68,6 +85,7 @@ export async function POST(req, { params }) {
   }
 }
 
+// Fetch all top-level comments with their replies
 export async function GET(req, { params }) {
   try {
     const articleId = parseInt(params.articleId);
@@ -79,27 +97,45 @@ export async function GET(req, { params }) {
     }
 
     const comments = await prisma.comment.findMany({
-      where: { articleId },
+      where: { articleId, parentId: null },
       orderBy: { createdAt: 'desc' },
       include: {
         user: {
           select: {
+            id: true,
             username: true,
-            // Add other user fields you want to include
+          },
+        },
+        replies: {
+          orderBy: { createdAt: 'asc' },
+          include: {
+            user: {
+              select: {
+                id: true,
+                username: true,
+              },
+            },
           },
         },
       },
     });
 
     return NextResponse.json({
-      comments: comments.map(comment => ({
+      comments: comments.map((comment) => ({
         id: comment.id,
         content: comment.content,
-        user: comment.user,
+        user: { id: comment.user.id, username: comment.user.username },
+        parentId: comment.parentId,
         createdAt: comment.createdAt.toISOString(),
+        replies: comment.replies.map((reply) => ({
+          id: reply.id,
+          content: reply.content,
+          user: { id: reply.user.id, username: reply.user.username },
+          parentId: reply.parentId,
+          createdAt: reply.createdAt.toISOString(),
+        })),
       })),
     });
-
   } catch (error) {
     console.error('Get comments error:', error);
     return NextResponse.json(

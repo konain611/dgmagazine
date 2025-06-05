@@ -134,7 +134,7 @@ export default function LoginRegister() {
               Are you human? Solve: {loginCaptcha.question} =
               <input name="captcha" value={loginData.captcha} onChange={handleLoginChange} type="text" className="w-full p-2 border rounded mt-1 focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
             </label>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 my-2">
               <input type="checkbox" id="remember" />
               <label htmlFor="remember">Remember me</label>
             </div>
@@ -175,7 +175,7 @@ export default function LoginRegister() {
               Are you human? Solve: {registerCaptcha.question} =
               <input name="captcha" value={registerData.captcha} onChange={handleRegisterChange} type="text" className="w-full p-2 border rounded mt-1 focus:outline-none focus:ring-2 focus:ring-[#003366] transition" required />
             </label>
-            <p className="text-sm text-gray-600">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <span className="underline cursor-pointer">privacy policy</span>.</p>
+            <p className="text-sm text-gray-600 my-2">Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <span className="underline cursor-pointer text-blue-700">privacy policy</span>.</p>
             <button type="submit" className="w-full bg-gray-300 hover:bg-gray-400 active:scale-95 transition transform px-4 py-2 rounded shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#003366]">
               Register
             </button>
