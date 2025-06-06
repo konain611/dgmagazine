@@ -41,6 +41,12 @@ export default async function Article({ slug }: Props) {
 
   return (
     <div className="max-w-[95%] mx-auto p-6 bg-white">
+
+      <div className="text-sm text-gray-500 mb-5 text-center">
+        <span>Written By {article.author}</span> | 
+        <span className="ml-2">{new Date(article.createdAt).toLocaleDateString()}</span>
+      </div>
+
       {article.imageUrl && (
         <div className="mb-6">
           <Image
@@ -55,7 +61,17 @@ export default async function Article({ slug }: Props) {
 
       <h1 className="text-3xl font-bold text-center my-10">{article.title}</h1>
 
-      <p className="whitespace-pre-line">{article.content}</p>
+      <div className="text-base font-sans leading-relaxed mx-6">
+        {article.content
+          .split('\\n')
+          .map((paragraph, idx) => (
+            <p key={idx} className="mb-4">
+              {paragraph}
+            </p>
+          ))}
+      </div>
+
+
 
       <ArticleInteractionPanel
         articleId={article.id}

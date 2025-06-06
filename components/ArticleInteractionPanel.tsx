@@ -1,4 +1,3 @@
-// components/ArticleInteractionPanel.tsx
 
 'use client';
 

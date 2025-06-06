@@ -15,8 +15,8 @@ export default function PopularPosts() {
             />
             <InfoCard
                 heading="bitcoin"
-                image="/bitcoin.jpg"
-                link="/bitcoin-in-pakistan"
+                image="/images/articles/bitcoin.jpg"
+                link="/articles/bitcoin-in-pakistan"
             />
             <InfoCard
                 heading="Cyber Policy In Pakistan"
