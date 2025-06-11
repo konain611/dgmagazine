@@ -65,19 +65,22 @@ model ContactForm {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  company   String
-  country   String
-  username  String   @unique
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
+  id         Int       @id @default(autoincrement())
+  username   String    @unique
+  email      String    @unique
+  password   String
+  company    String?
+  country    String?
+  pictureUrl String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now()) @updatedAt
 
   // Relations
   likes       ArticleLike[]
   comments    Comment[]
   downloads   ArticleDownload[]
 }
+
 
 model Article {
   id          Int       @id @default(autoincrement())
@@ -87,6 +90,7 @@ model Article {
   author      String
   createdAt   DateTime  @default(now())
   imageUrl    String?
+
   // Relations
   likes       ArticleLike[]
   comments    Comment[]

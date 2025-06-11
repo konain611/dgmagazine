@@ -110,7 +110,7 @@ export default function NewsCard({
         <div className="mt-3 flex gap-4 items-center">
           <button
             onClick={handleLike}
-            className="flex items-center gap-1 hover:text-green-600 text-sm"
+            className="flex items-center gap-1 text-gray-700 hover:text-green-600 text-sm"
           >
             <ThumbsUpIcon className={`w-8 h-8 ${userReaction === "like" ? "fill-current" : ""}`} />
             {likes}
@@ -118,7 +118,7 @@ export default function NewsCard({
 
           <button
             onClick={handleDislike}
-            className="flex items-center gap-1 hover:text-red-600 text-sm"
+            className="flex items-center gap-1 text-gray-700 hover:text-red-600 text-sm"
           >
             <ThumbsDownIcon className={`w-8 h-8 ${userReaction === "dislike" ? "fill-current" : ""}`} />
           </button>

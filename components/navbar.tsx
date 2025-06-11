@@ -126,11 +126,11 @@ const Navbar = () => {
                                 width={140}
                                 height={200}
                                 className="h-full w-auto object-contain"
-                                // style={{
-                                //     minWidth: '120px',
-                                //     maxWidth: '130px', // Constrain width
-                                //     maxHeight: '200px' // Prevent excessive height
-                                // }}
+                            // style={{
+                            //     minWidth: '120px',
+                            //     maxWidth: '130px', // Constrain width
+                            //     maxHeight: '200px' // Prevent excessive height
+                            // }}
                             />
                         </Link>
                     </div>
@@ -157,8 +157,9 @@ const Navbar = () => {
                 {/* Navigation Links - Desktop */}
                 <div
                     ref={dropdownRef}
-                    className={`${mobileMenuOpen ? 'block' : 'hidden'} text-sm md:flex md:flex-1 md:items-center md:space-x-2 w-full md:w-auto mt-4 bg-[#003366] md:mt-0 md:min-w-[50%]`}
+                    className={`${mobileMenuOpen ? 'block' : 'hidden'} text-sm md:flex md:items-center justify-center md:space-x-2 w-full md:w-auto mt-4 bg-[#003366] md:mt-0 mx-auto`}
                 >
+
                     {["NEWS", "MAGAZINE", "RESEARCH", "ADVISORY ROOM", "CYBER PRODUCTS", "CYBER AFFAIRS", "CYBER AWARENESS", "MEDIA"].map((item) => (
                         <div
                             key={item}
@@ -257,7 +258,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Search Bar - Right Side */}
-               <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex items-center w-full md:w-auto mt-4 md:mt-0 md:ml-auto md:px-6 flex-shrink-0`}>
+                {/* <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex items-center w-full md:w-auto mt-4 md:mt-0 md:ml-auto md:px-6 flex-shrink-0`}>
                     <div className="relative w-full md:w-48">
                         <input
                             type="text"
@@ -270,7 +271,7 @@ const Navbar = () => {
                             </svg>
                         </button>
                     </div>
-                </div>
+                </div> */}
             </nav>
 
 

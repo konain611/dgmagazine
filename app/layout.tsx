@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar";
 import SubNavbar from "@/components/subnavbar";
 import Footer from "@/components/footer";
 
-// ← Import AuthProvider
+
 import { AuthProvider } from "@/components/AuthContext";
 
 const geistSans = Geist({

@@ -26,7 +26,7 @@ export default function SubNavbar() {
       "
     >
       {token && (
-      <Link href="/dashboard" className="px-3 py-1 hover:text-[#003366]">
+      <Link href="/dashboard" className="px-3 py-1 hover:text-[#003366] font-semibold">
         DASHBOARD
       </Link>
     )}
@@ -40,7 +40,6 @@ export default function SubNavbar() {
       <Link href="/partner-with-us" className="px-3 py-1 hover:text-[#003366]">
         PARTNER WITH US
       </Link>
-
       <Link href="/contact-us" className="px-3 py-1 hover:text-[#003366]">
         CONTACT US
       </Link>
@@ -51,7 +50,8 @@ export default function SubNavbar() {
       {token ? (
         <button
           onClick={handleLogout}
-          className="px-3 py-1 hover:text-red-500 font-semibold cursor-pointer"
+          className="px-3 py-1 hover:text-red-600 font-semibold cursor-pointer border-2 border-white rounded-lg hover:border-red-600 transition-colors duration-300"
+          title="Log out"
         >
           LOG OUT
         </button>

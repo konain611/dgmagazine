@@ -12,7 +12,7 @@ const Footer = () => {
 
           <div className="space-y-8">
             <Image
-              src="/logo-h.jpg"
+              src="/images/logo-h.jpg"
               alt="DG Magazine Cyber Security logo"
               width={150}
               height={60}

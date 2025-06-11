@@ -102,7 +102,7 @@ export default function LoginRegister() {
 
       login(data.token);
       setSuccess('Login successful! Redirecting...');
-      router.push('/');
+      router.push('/dashboard');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error.');
     }
