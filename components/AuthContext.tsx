@@ -1,3 +1,4 @@
+// ✅ Updated: components/AuthContext.tsx
 'use client';
 
 import React, {
@@ -6,19 +7,21 @@ import React, {
   useState,
   useEffect,
   ReactNode,
+  useCallback,
 } from 'react';
+import { useRouter } from 'next/navigation';
 import { jwtDecode } from 'jwt-decode';
 
 interface DecodedToken {
   userId: number;
-  // other fields if present
+  exp: number;
 }
 
 interface AuthContextType {
   token: string | null;
   userId: number | null;
   login: (token: string) => void;
-  logout: () => void;
+  logout: () => Promise<void>;
   loading: boolean;
 }
 
@@ -28,20 +31,44 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [userId, setUserId] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  // ✅ useCallback to stabilize logout function reference
+  const logout = useCallback(async () => {
+    localStorage.removeItem('token');
+    setToken(null);
+    setUserId(null);
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+    } catch {}
+  }, []);
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
-      setToken(storedToken);
       try {
         const decoded = jwtDecode<DecodedToken>(storedToken);
+        setToken(storedToken);
         setUserId(decoded.userId);
+
+        const expMs = decoded.exp * 1000;
+        if (expMs < Date.now()) {
+          logout();
+          router.push('/sign-up?sessionExpired=1');
+        } else {
+          const timeoutId = setTimeout(() => {
+            logout();
+            router.push('/sign-up?sessionExpired=1');
+          }, expMs - Date.now());
+          return () => clearTimeout(timeoutId);
+        }
       } catch {
         setUserId(null);
+        logout();
       }
     }
     setLoading(false);
-  }, []);
+  }, [token, router, logout]);
 
   const login = (newToken: string) => {
     localStorage.setItem('token', newToken);
@@ -52,12 +79,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch {
       setUserId(null);
     }
-  };
-
-  const logout = () => {
-    localStorage.removeItem('token');
-    setToken(null);
-    setUserId(null);
   };
 
   return (

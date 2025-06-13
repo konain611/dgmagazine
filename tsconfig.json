@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ArticleInteractionPanel.tsx", "lib/auth.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ArticleInteractionPanel.tsx", "lib/auth.js", "app/api/user/avatar/route.js"],
   "exclude": ["node_modules"]
 }

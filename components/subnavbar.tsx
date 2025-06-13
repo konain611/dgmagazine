@@ -7,12 +7,13 @@ export default function SubNavbar() {
   const { token, logout } = useAuth();
   const router = useRouter();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (confirm('Are you sure you want to log out?')) {
-      logout();
+      await logout();
       router.push('/');
     }
   };
+
 
   return (
     <nav
@@ -26,10 +27,10 @@ export default function SubNavbar() {
       "
     >
       {token && (
-      <Link href="/dashboard" className="px-3 py-1 hover:text-[#003366] font-semibold">
-        DASHBOARD
-      </Link>
-    )}
+        <Link href="/dashboard" className="px-3 py-1 hover:text-[#003366] font-semibold">
+          DASHBOARD
+        </Link>
+      )}
 
       <Link href="/write-for-us" className="px-3 py-1 hover:text-[#003366]">
         WRITE FOR US
